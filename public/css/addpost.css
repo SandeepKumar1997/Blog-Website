@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap');
+
+.container{
+ height: 85vh;
+ 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-family: 'Montserrat', sans-serif;
+}
+
+form{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 0.5rem;
+ width: 100%;
+ 
+}
+
+form > textarea{
+ height: 20rem;
+ width: 50%;
+ font-size: 1rem;
+ font-family: 'Montserrat', sans-serif;
+ font-weight: lighter;
+ border-radius: 1rem;
+ border: 2px solid lightgrey;
+ padding: 1.5rem;
+}
+
+form > label{
+ font-size: 2rem;
+ font-weight: bolder;
+ font-family: "Rowdies", cursive;
+}
+
+form >button{
+ background-color: black;
+ color: white;
+ padding: 1rem 2.7rem;
+ border:none;
+ border-radius: 1rem;
+ font-weight: bold;
+ font-family: 'Montserrat', sans-serif;
+ transition: all 0.4s ease;
+}
+
+form >button:hover{
+ color: black;
+ background-color: grey;
+ cursor: pointer;
+}

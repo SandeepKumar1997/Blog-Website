@@ -1,0 +1,23 @@
+<%- include("header"); -%>
+
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/home.css">
+ <div class="create-post">
+  <div class="new-post-area">
+   <p>Create New Post</p>
+   <div class="new-post-btn"><a href="http://localhost:3000/newpost">+</a></div>
+  </div>
+
+  <div class="all-post-area">
+   <%for(var i=0;i<items.length;i++){%>
+    <span>Post <%= i+1 %></span>
+    <div class="posts"><%= items[i] %></div>
+    <%}%>
+  </div>
+
+ </div>
+
+
+
+  <%- include("footer"); -%>
+ 

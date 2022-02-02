@@ -1,0 +1,11 @@
+<%- include("header"); -%>
+<link rel="stylesheet" href="css/addpost.css">
+<div class="container">
+ <form action="/newpost" method="post">
+  <label for="addnewpost">Add Post</label>
+  <textarea name="postText" id="addnewpost" cols="30" rows="100"></textarea>
+  <button type="submit">Post</button>
+ </form>
+</div>
+
+<%- include("footer") -%>
