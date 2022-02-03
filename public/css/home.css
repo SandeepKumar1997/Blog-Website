@@ -4,14 +4,17 @@
   font-family: "Rowdies", cursive;
   height: fit-content;
   margin-bottom: 2rem;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .new-post-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 3px solid grey;
+  border: 1px solid grey;
   margin: 1rem 5rem;
   border-radius: 2rem;
 }
@@ -19,7 +22,7 @@
 .new-post-area p {
   margin: 1rem;
 
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: grey;
   font-weight: lighter;
 }
@@ -55,22 +58,31 @@
 
 .all-post-area {
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  height: fit-content;
+  
 }
 
 .posts {
   padding-bottom: 1rem;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   font-family: "Montserrat", sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(112, 111, 111);
 }
 
 .all-post-area > span{
-  padding: 0 1rem;
+  font-family: "Rowdies", cursive;
+  padding-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.all-post-area .posts >a{
+  color: rgb(49, 167, 240);
+  text-decoration: none;
+
 }

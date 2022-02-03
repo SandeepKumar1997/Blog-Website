@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap');
 
 .container{
- height: 85vh;
- 
+ height: fit-content;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -12,10 +11,13 @@
 form{
  display: flex;
  flex-direction: column;
- align-items: center;
+ justify-content: center;
+ align-content: center;
+ align-items: flex-start;
  gap: 0.5rem;
- width: 100%;
- 
+
+ width: 60%;
+ margin: 1rem;
 }
 
 form > textarea{
@@ -23,15 +25,27 @@ form > textarea{
  width: 50%;
  font-size: 1rem;
  font-family: 'Montserrat', sans-serif;
+ width: 100%;
  font-weight: lighter;
  border-radius: 1rem;
  border: 2px solid lightgrey;
- padding: 1.5rem;
+ padding: 0.5rem;
+}
+
+form > input{
+ width: 50%;
+ font-size: 1rem;
+ font-family: 'Montserrat', sans-serif;
+ width: 100%;
+ font-weight: lighter;
+ border-radius: 1rem;
+ border: 2px solid lightgrey;
+ padding: 0.5rem;
 }
 
 form > label{
- font-size: 2rem;
- font-weight: bolder;
+ font-size: 1.2rem;
+ font-weight: bold;
  font-family: "Rowdies", cursive;
 }
 

@@ -96,7 +96,13 @@
 }
 
 .footer-end{
+  position: fixed;
   font-family: "Rowdies", cursive;
   text-align: center;
-  color: grey;
+  color: black;
+  background-color: rgb(182, 172, 172);
+  padding: 0.5rem;
+  width: 100%;;
+  left: 0;
+  bottom: 0;
 }

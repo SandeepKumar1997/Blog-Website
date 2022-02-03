@@ -10,8 +10,8 @@
 
   <div class="all-post-area">
    <%for(var i=0;i<items.length;i++){%>
-    <span>Post <%= i+1 %></span>
-    <div class="posts"><%= items[i] %></div>
+    <span><%= items[i].title %></span>
+    <div class="posts"><%= items[i].content.substring(0,100) +" .... " %><a href="/<%= items[i].title %>">Read more</a></div>
     <%}%>
   </div>
 
