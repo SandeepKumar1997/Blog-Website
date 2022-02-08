@@ -1,49 +1,101 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-var _ = require('lodash');
+var _ = require("lodash");
 const res = require("express/lib/response");
+
+const mongoose = require("mongoose");
+const Blog = require("./blogSchema");
+mongoose.connect("mongodb://localhost/blogDB", () => {
+  console.log("Database connected");
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-const postItems = [];
 // Home Page Server
 app.get("/", (req, res) => {
-  res.render("home", { page: "homepage", items: postItems });
+  Blog.find({}, (err, data) => {
+    res.render("home", { items: data });
+    
+  });
+  
 });
 
 // Add new Post page
 
 app.get("/newpost", (req, res) => {
   res.render("addpost");
-  console.log(req.params.post);
 });
 
 app.post("/newpost", (req, res) => {
-  const post = {
-    title: req.body.title,
-    content: req.body.postText,
-  };
-  postItems.push(post);
-  res.redirect("/");
-  console.log(postItems);
-});
-
-app.get("/:postTitle",(req,res)=>{
- const postRequest=_.lowerCase(req.params.postTitle);
-console.log(postRequest);
- postItems.find((post)=>{
-  if(_.lowerCase(post.title)===postRequest){
-   res.render("post",{
-    title:post.title,
-    content:post.content
-   })
+  addBlog();
+  async function addBlog() {
+    try {
+      await Blog.create({
+        title: req.body.title,
+        blogContent: req.body.postText,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
+  res.redirect("/");
+});
 
- });
+app.get("/:postId", (req, res) => {
+  const postID = req.params.postId;
+  Blog.findOne({ _id: postID }, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("post", {
+        ID:postID,
+        title: doc.title,
+        content: doc.blogContent,
+        
+      });
+      
+    }
+  });
+});
 
+app.post("/:postId",(req,res)=>{
+  const deletePost=req.params.postId;
+  console.log(deletePost)
+  Blog.deleteOne({_id:deletePost},(err,data)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.redirect("/");
+      console.log(data)
+    }
+  });
+})
+
+
+app.get("/editpost/:id",(req,res)=>{
+  const editpostId=req.params.id;
+  Blog.findOne({_id:editpostId},(err,data)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.render("editpost",{titleEdit:data.title,ID:editpostId,contentEdit:data.blogContent})
+    }
+  })
+})
+
+app.post("/editpost/:id",(req,res)=>{
+  const updatePost=req.params.id;
+  Blog.updateOne({_id:updatePost},{$set:{title:req.body.title,blogContent:req.body.postText}},(err,data)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.redirect("/");
+      console.log(data)
+    }
+  });
 })
 
 app.listen(3000, () => {

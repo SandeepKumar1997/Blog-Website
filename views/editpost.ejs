@@ -1,0 +1,18 @@
+<%- include("header"); -%>
+
+
+ <link rel="stylesheet" href="/css/addpost.css">
+ <div class="container">
+  <form action="/editpost/<%=ID%>" method="post">
+   <label for="titlePost">Title</label>
+   <input type="text" name="title" id="titlePost" value="<%=titleEdit%>">
+   <label for="addnewpost">Add Post</label>
+   <textarea name="postText" id="addnewpost" value="fdfsd" cols="30" rows="100" required><%=contentEdit%></textarea>
+   <div class="edit-post-buttons">
+    <button type="submit">Update</button>
+   </div>
+  </form>
+  
+ </div>
+
+ <%- include("footer") -%>

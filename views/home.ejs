@@ -1,23 +1,29 @@
 <%- include("header"); -%>
 
- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="css/home.css">
- <div class="create-post">
-  <div class="new-post-area">
-   <p>Create New Post</p>
-   <div class="new-post-btn"><a href="http://localhost:3000/newpost">+</a></div>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <div class="create-post">
+    <div class="new-post-area">
+      <p>Create New Post</p>
+      <div class="new-post-btn"><a href="http://localhost:3000/newpost">+</a></div>
+    </div>
+
+    <div class="all-post-area">
+      <% items.forEach((item)=>{ %>
+        <div class="edit-form">
+          <span>
+            <%= item.title %>
+          </span>
+          <div class="posts">
+            <%= (item.blogContent).substring(0,100) %><a href="/<%=item._id%>"> .... Read more</a>
+          </div>
+          <form action="/editpost/<%=item._id%>" method="get">
+           
+            <input type="submit" value="Edit Post">
+          </form>
+        </div>
+        <%})%>
+    </div>
   </div>
-
-  <div class="all-post-area">
-   <%for(var i=0;i<items.length;i++){%>
-    <span><%= items[i].title %></span>
-    <div class="posts"><%= items[i].content.substring(0,100) +" .... " %><a href="/<%= items[i].title %>">Read more</a></div>
-    <%}%>
-  </div>
-
- </div>
-
-
 
   <%- include("footer"); -%>
- 

@@ -1,5 +1,7 @@
 <%- include("header"); -%>
  <link rel="stylesheet" href="css/home.css">
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
  <div class="all-post-area">
 
   <span>
@@ -7,6 +9,11 @@
   </span>
   <div class="posts">
    <%= content %>
+  </div>
+  <div>
+   <form action="/<%=ID%>" method="post">
+    <button type="submit"><i class="far fa-trash-alt"></i> Delete Post</button>
+   </form>
   </div>
  </div>
 
